@@ -1,0 +1,221 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /home/luomo/miniconda3/bin/python3 (found version "3.13.11") found components: Interpreter 
+-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found PythonExtra: /home/luomo/miniconda3/bin/python3  
+-- Found Python3: /home/luomo/miniconda3/bin/python3 (found version "3.13.11") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Found ament_lint_auto: 0.17.4 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Configuring done (1.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/luomo/Documents/GitHub/detect_armor_robomaster/build/armor_interfaces
+[  2%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[  2%] Built target ament_cmake_python_copy_armor_interfaces
+[  2%] Built target armor_interfaces__rosidl_generator_type_description
+[  5%] [34m[1mGenerating C code for ROS interfaces[0m
+[  8%] [34m[1mGenerating C++ code for ROS interfaces[0m
+running egg_info
+creating armor_interfaces.egg-info
+writing armor_interfaces.egg-info/PKG-INFO
+writing dependency_links to armor_interfaces.egg-info/dependency_links.txt
+writing top-level names to armor_interfaces.egg-info/top_level.txt
+writing manifest file 'armor_interfaces.egg-info/SOURCES.txt'
+reading manifest file 'armor_interfaces.egg-info/SOURCES.txt'
+writing manifest file 'armor_interfaces.egg-info/SOURCES.txt'
+[  8%] Built target ament_cmake_python_build_armor_interfaces_egg
+[  8%] Built target armor_interfaces__cpp
+[ 11%] [32mBuilding C object CMakeFiles/armor_interfaces__rosidl_generator_c.dir/rosidl_generator_c/armor_interfaces/msg/detail/armor_info__description.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/armor_interfaces__rosidl_generator_c.dir/rosidl_generator_c/armor_interfaces/msg/detail/armor_info__type_support.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/armor_interfaces__rosidl_generator_c.dir/rosidl_generator_c/armor_interfaces/msg/detail/armor_info__functions.c.o[0m
+[ 20%] [32m[1mLinking C shared library libarmor_interfaces__rosidl_generator_c.so[0m
+[ 20%] Built target armor_interfaces__rosidl_generator_c
+[ 38%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 38%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 38%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 38%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 38%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 38%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 44%] [32mBuilding C object CMakeFiles/armor_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/armor_interfaces/msg/detail/armor_info__type_support.c.o[0m
+[ 44%] [32mBuilding CXX object CMakeFiles/armor_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/armor_interfaces/msg/armor_info__type_support.cpp.o[0m
+[ 47%] [32mBuilding CXX object CMakeFiles/armor_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/armor_interfaces/msg/armor_info__type_support.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/armor_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/armor_interfaces/msg/detail/armor_info__type_support.cpp.o[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/armor_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/armor_interfaces/msg/detail/dds_fastrtps/armor_info__type_support.cpp.o[0m
+[ 55%] [32mBuilding CXX object CMakeFiles/armor_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/armor_interfaces/msg/detail/armor_info__type_support_c.cpp.o[0m
+[ 58%] [32m[1mLinking C shared library libarmor_interfaces__rosidl_typesupport_introspection_c.so[0m
+[ 61%] [32m[1mLinking CXX shared library libarmor_interfaces__rosidl_typesupport_c.so[0m
+[ 61%] Built target armor_interfaces__rosidl_typesupport_introspection_c
+[ 61%] Built target armor_interfaces__rosidl_typesupport_c
+[ 64%] [32m[1mLinking CXX shared library libarmor_interfaces__rosidl_typesupport_cpp.so[0m
+[ 67%] [32m[1mLinking CXX shared library libarmor_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[ 67%] Built target armor_interfaces__rosidl_typesupport_cpp
+[ 67%] Built target armor_interfaces__rosidl_typesupport_introspection_cpp
+[ 73%] [32m[1mLinking CXX shared library libarmor_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[ 73%] [32m[1mLinking CXX shared library libarmor_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 73%] Built target armor_interfaces__rosidl_typesupport_fastrtps_c
+[ 73%] Built target armor_interfaces__rosidl_typesupport_fastrtps_cpp
+[ 73%] Built target armor_interfaces
+[ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 76%] Built target armor_interfaces__py
+[ 79%] [32mBuilding C object CMakeFiles/armor_interfaces__rosidl_generator_py.dir/rosidl_generator_py/armor_interfaces/msg/_armor_info_s.c.o[0m
+[ 82%] [32m[1mLinking C shared library libarmor_interfaces__rosidl_generator_py.so[0m
+[ 82%] Built target armor_interfaces__rosidl_generator_py
+[ 91%] [32mBuilding C object CMakeFiles/armor_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/armor_interfaces/_armor_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[ 91%] [32mBuilding C object CMakeFiles/armor_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/armor_interfaces/_armor_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 91%] [32mBuilding C object CMakeFiles/armor_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/armor_interfaces/_armor_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 97%] [32m[1mLinking C shared module rosidl_generator_py/armor_interfaces/armor_interfaces_s__rosidl_typesupport_c.so[0m
+[ 97%] [32m[1mLinking C shared module rosidl_generator_py/armor_interfaces/armor_interfaces_s__rosidl_typesupport_fastrtps_c.so[0m
+[100%] [32m[1mLinking C shared module rosidl_generator_py/armor_interfaces/armor_interfaces_s__rosidl_typesupport_introspection_c.so[0m
+[100%] Built target armor_interfaces_s__rosidl_typesupport_c
+[100%] Built target armor_interfaces_s__rosidl_typesupport_introspection_c
+[100%] Built target armor_interfaces_s__rosidl_typesupport_fastrtps_c
+-- Install configuration: ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/ament_index/resource_index/rosidl_interfaces/armor_interfaces
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/msg/ArmorInfo.json
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__functions.h
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__functions.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__type_support.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__struct.h
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__type_support.h
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__description.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/armor_info.h
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/library_path.sh
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/library_path.dsv
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_generator_c.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_generator_c.so" to ""
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__type_support.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__rosidl_typesupport_introspection_c.h
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/armor_info.hpp
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__type_support.hpp
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__struct.hpp
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__traits.hpp
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__builder.hpp
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/dds_fastrtps
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_fastrtps_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg
+-- Up-to-date: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__type_support.cpp
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/include/armor_interfaces/armor_interfaces/msg/detail/armor_info__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_introspection_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_cpp.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_typesupport_cpp.so" to ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/pythonpath.sh
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/pythonpath.dsv
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces-0.0.0-py3.13.egg-info
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces-0.0.0-py3.13.egg-info/top_level.txt
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces-0.0.0-py3.13.egg-info/PKG-INFO
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces-0.0.0-py3.13.egg-info/SOURCES.txt
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces-0.0.0-py3.13.egg-info/dependency_links.txt
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_fastrtps_c.so
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/_armor_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/__init__.py
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_c.so
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/msg
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/msg/__init__.py
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/msg/_armor_info_s.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/msg/_armor_info.py
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/_armor_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/_armor_interfaces_s.ep.rosidl_typesupport_c.c
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_introspection_c.so
+Listing '/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces'...
+Compiling '/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/__init__.py'...
+Listing '/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/msg'...
+Compiling '/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/msg/__init__.py'...
+Compiling '/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/msg/_armor_info.py'...
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_fastrtps_c.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_introspection_c.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_c.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/python3.13/site-packages/armor_interfaces/armor_interfaces_s__rosidl_typesupport_c.so" to ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_generator_py.so
+-- Set non-toolchain portion of runtime path of "/home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/lib/libarmor_interfaces__rosidl_generator_py.so" to ""
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/msg/ArmorInfo.idl
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/msg/ArmorInfo.msg
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/ament_index/resource_index/package_run_dependencies/armor_interfaces
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/ament_index/resource_index/parent_prefix_path/armor_interfaces
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/ament_prefix_path.sh
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/ament_prefix_path.dsv
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/path.sh
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/environment/path.dsv
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/local_setup.bash
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/local_setup.sh
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/local_setup.zsh
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/local_setup.dsv
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/package.dsv
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/ament_index/resource_index/packages/armor_interfaces
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_generator_cExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_cExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_generator_cppExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_generator_pyExport.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/export_armor_interfaces__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/rosidl_cmake-extras.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfacesConfig.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/cmake/armor_interfacesConfig-version.cmake
+-- Installing: /home/luomo/Documents/GitHub/detect_armor_robomaster/install/armor_interfaces/share/armor_interfaces/package.xml

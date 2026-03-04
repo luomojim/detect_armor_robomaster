@@ -1,0 +1,31 @@
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/openCVBasicDetector.cpp:[m[K In member function ‘[01m[Kimage_hsv_info openCVBasicDetector::[01;32m[Khsv_Color_Picker[m[K(const cv::Mat&, bool)[m[K’:
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/openCVBasicDetector.cpp:29:40:[m[K [01;35m[Kwarning: [m[Kleft operand of comma operator has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   29 |         cv::namedWindow("hsv_picker", ([01;35m[K680[m[K, 480));
+      |                                        [01;35m[K^~~[m[K
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/openCVBasicDetector.cpp:[m[K In member function ‘[01m[Kcv::Mat openCVBasicDetector::[01;32m[KgetCounters[m[K(cv::Mat, cv::Mat&, int, bool, bool, double, double)[m[K’:
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/openCVBasicDetector.cpp:105:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  105 |         for (int i = 0; [01;35m[Ki < contours_find.size()[m[K; i++)
+      |                         [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/openCVBasicDetector.cpp:[m[K In member function ‘[01m[Kvoid openCVBasicDetector::[01;32m[Kfacial_Detection[m[K(int, std::string)[m[K’:
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/openCVBasicDetector.cpp:150:48:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcamera_id[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  150 | void openCVBasicDetector::facial_Detection([01;35m[Kint camera_id[m[K, std::string path)
+      |                                            [01;35m[K~~~~^~~~~~~~~[m[K
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:[m[K In member function ‘[01m[Kvoid armorTracker::[01;32m[Kdetect_armors[m[K(std::vector<std::vector<cv::Point_<int> > >)[m[K’:
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:40:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+   40 |         for (int i = 0; [01;35m[Ki < contours.size()[m[K; i++)
+      |                         [01;35m[K~~^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:[m[K In member function ‘[01m[Kvoid armorTracker::[01;32m[Kmatch_armor[m[K()[m[K’:
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:94:27:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<cv::RotatedRect>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+   94 |         for (int i = 0; [01;35m[Ki < light_bars.size()[m[K; i++)
+      |                         [01;35m[K~~^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:96:39:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<cv::RotatedRect>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+   96 |                 for (int j = i + 1; [01;35m[Kj < light_bars.size()[m[K; j++)
+      |                                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:[m[K In member function ‘[01m[Kvoid armorTracker::[01;32m[Kdraw_result[m[K(cv::Mat&, cv::Mat&)[m[K’:
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:213:35:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<double, std::allocator<double> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  213 |                 for (int i = 1; [01;35m[Ki < kf_yaws.size()[m[K; i++)
+      |                                 [01;35m[K~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:[m[K In member function ‘[01m[Kvoid armorTracker::[01;32m[Ksolve_pnp[m[K()[m[K’:
+[01m[K/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/src/armorTracker.cpp:276:40:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::vector<fit_data>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  276 |                 if ([01;35m[Kcenter_fits.size() > center_fit_window[m[K)
+      |                     [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~[m[K

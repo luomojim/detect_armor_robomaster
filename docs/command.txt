@@ -1,0 +1,4 @@
+cd /home/luomo/Documents/GitHub/detect_armor_robomaster
+source /opt/ros/jazzy/setup.zsh
+source install/setup.zsh
+ros2 launch armor_tracker_ros2 armor_tracker.launch.py

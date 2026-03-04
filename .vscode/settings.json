@@ -1,0 +1,8 @@
+{
+    "editor.autoIndent": "full",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
+}
