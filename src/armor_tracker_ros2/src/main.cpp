@@ -1,5 +1,14 @@
+#include <algorithm>
+#include <chrono>
 #include <iostream>
+#include <memory>
+#include <string>
+#include <vector>
 #include <opencv2/opencv.hpp>
+
+#if defined(ARMOR_TRACKER_USE_MVSDK)
+#include "CameraApi.h"
+#endif
 
 #include "armor_interfaces/msg/armor_info.hpp"
 #include "geometry_msgs/msg/transform_stamped.hpp"
@@ -17,6 +26,158 @@
 #include "openCVBasicFX.hpp"
 #include "openCVBasicImageOperator.hpp"
 #include "openCVBasicOperator.hpp"
+
+namespace
+{
+constexpr double kManualExposureTimeUs = 3000.0;
+
+class ArmorCameraCapture
+{
+public:
+	~ArmorCameraCapture()
+	{
+		release();
+	}
+
+	bool open()
+	{
+#if defined(ARMOR_TRACKER_USE_MVSDK)
+		if (CameraSdkInit(1) != CAMERA_STATUS_SUCCESS)
+		{
+			return false;
+		}
+
+		std::vector<tSdkCameraDevInfo> camera_list(4);
+		INT camera_count = static_cast<INT>(camera_list.size());
+		if (CameraEnumerateDevice(camera_list.data(), &camera_count) != CAMERA_STATUS_SUCCESS || camera_count <= 0)
+		{
+			return false;
+		}
+
+		if (CameraInit(&camera_list[0], -1, -1, &camera_handle_) != CAMERA_STATUS_SUCCESS)
+		{
+			return false;
+		}
+		initialized_ = true;
+
+		if (CameraGetCapability(camera_handle_, &capability_) != CAMERA_STATUS_SUCCESS)
+		{
+			release();
+			return false;
+		}
+		configure_exposure();
+
+		const bool is_mono_sensor = capability_.sIspCapacity.bMonoSensor;
+		const UINT output_format = is_mono_sensor ? CAMERA_MEDIA_TYPE_MONO8 : CAMERA_MEDIA_TYPE_BGR8;
+		if (CameraSetIspOutFormat(camera_handle_, output_format) != CAMERA_STATUS_SUCCESS)
+		{
+			release();
+			return false;
+		}
+
+		const std::size_t max_width = static_cast<std::size_t>(capability_.sResolutionRange.iWidthMax);
+		const std::size_t max_height = static_cast<std::size_t>(capability_.sResolutionRange.iHeightMax);
+		const std::size_t output_channels = is_mono_sensor ? 1U : 3U;
+		rgb_buffer_.resize(max_width * max_height * output_channels);
+		if (rgb_buffer_.empty())
+		{
+			release();
+			return false;
+		}
+
+		if (CameraPlay(camera_handle_) != CAMERA_STATUS_SUCCESS)
+		{
+			release();
+			return false;
+		}
+		return true;
+#else
+		if (!capture_.open(0))
+		{
+			return false;
+		}
+		initialized_ = true;
+		return true;
+#endif
+	}
+
+	bool read(cv::Mat &frame)
+	{
+#if defined(ARMOR_TRACKER_USE_MVSDK)
+		tSdkFrameHead frame_info{};
+		BYTE *raw_buffer = nullptr;
+		const CameraSdkStatus buffer_status = CameraGetImageBuffer(camera_handle_, &frame_info, &raw_buffer, 1000);
+		if (buffer_status != CAMERA_STATUS_SUCCESS)
+		{
+			return false;
+		}
+
+		const CameraSdkStatus process_status = CameraImageProcess(camera_handle_, raw_buffer, rgb_buffer_.data(), &frame_info);
+		CameraReleaseImageBuffer(camera_handle_, raw_buffer);
+		if (process_status != CAMERA_STATUS_SUCCESS)
+		{
+			return false;
+		}
+
+		const int image_type = frame_info.uiMediaType == CAMERA_MEDIA_TYPE_MONO8 ? CV_8UC1 : CV_8UC3;
+		frame = cv::Mat(frame_info.iHeight, frame_info.iWidth, image_type, rgb_buffer_.data()).clone();
+		if (frame.empty())
+		{
+			return false;
+		}
+		if (image_type == CV_8UC1)
+		{
+			cv::cvtColor(frame, frame, cv::COLOR_GRAY2BGR);
+		}
+		return true;
+#else
+		capture_.read(frame);
+		return !frame.empty();
+#endif
+	}
+
+	void release()
+	{
+#if defined(ARMOR_TRACKER_USE_MVSDK)
+		if (initialized_)
+		{
+			CameraUnInit(camera_handle_);
+			initialized_ = false;
+		}
+		rgb_buffer_.clear();
+#else
+		capture_.release();
+		initialized_ = false;
+#endif
+	}
+
+private:
+#if defined(ARMOR_TRACKER_USE_MVSDK)
+	void configure_exposure()
+	{
+		CameraSetAeState(camera_handle_, FALSE);
+
+		double exposure_min = 0.0;
+		double exposure_max = 0.0;
+		double exposure_step = 0.0;
+		double exposure_time = kManualExposureTimeUs;
+		if (CameraGetExposureTimeRange(camera_handle_, &exposure_min, &exposure_max, &exposure_step) == CAMERA_STATUS_SUCCESS)
+		{
+			exposure_time = std::clamp(exposure_time, exposure_min, exposure_max);
+		}
+		CameraSetExposureTime(camera_handle_, exposure_time);
+		CameraSetAnalogGain(camera_handle_, static_cast<INT>(capability_.sExposeDesc.uiAnalogGainMin));
+	}
+
+	CameraHandle camera_handle_{};
+	tSdkCameraCapbility capability_{};
+	std::vector<unsigned char> rgb_buffer_;
+#else
+	cv::VideoCapture capture_;
+#endif
+	bool initialized_ = false;
+};
+} // namespace
 
 class ArmorTrackerNode : public rclcpp::Node
 {
@@ -36,6 +197,10 @@ private:
 	cv::Matx33d cv_to_ros;
 	double delta_t = 0.02;
 	cv::Mat ans;
+	ArmorCameraCapture camera_capture_;
+	bool camera_ready_ = false;
+	bool has_last_frame_time_ = false;
+	std::chrono::steady_clock::time_point last_frame_time_{};
 
 public:
 	ArmorTrackerNode()
@@ -48,21 +213,46 @@ public:
 		center_publisher = this->create_publisher<geometry_msgs::msg::PointStamped>("center", 10);
 		tf_broadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
-		openCVBasicOperator_.import_video("/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/asset/armor.mp4");
-		openCVBasicOperator_.create_mp4_video_writter("output/armor_output.mp4");
-		delta_t = 1.0 / openCVBasicOperator_.video_fps;
-		RCLCPP_INFO(this->get_logger(), "视频帧率信息(fps) %.2f, 定义的时间(s) : %.2f", openCVBasicOperator_.video_fps, delta_t);
+		// openCVBasicOperator_.import_video("/home/luomo/Documents/GitHub/detect_armor_robomaster/src/armor_tracker_ros2/asset/armor.mp4");
+		// openCVBasicOperator_.create_mp4_video_writter("output/armor_output.mp4");
+		// delta_t = 1.0 / openCVBasicOperator_.video_fps;
+		// RCLCPP_INFO(this->get_logger(), "视频帧率信息(fps) %.2f, 定义的时间(s) : %.2f", openCVBasicOperator_.video_fps, delta_t);
+
+		camera_ready_ = camera_capture_.open();
+		if (!camera_ready_)
+		{
+			RCLCPP_ERROR(this->get_logger(), "相机初始化失败");
+			return;
+		}
 
 		ans = openCVBasicDraw_.create_Blank_Image(1200, 600, 0, 0, 0);
 		kalmanFilter_.init(10, 1, 1.0);
-		RCLCPP_INFO(this->get_logger(), "初始化成功");
+		RCLCPP_INFO(this->get_logger(), "相机初始化成功");
+	}
+
+	bool is_ready() const
+	{
+		return camera_ready_;
 	}
 
 	void run()
 	{
-		cv::Mat frame;
-		while (rclcpp::ok() && openCVBasicOperator_.video.read(frame))
+		if (!camera_ready_)
 		{
+			return;
+		}
+
+		while (rclcpp::ok())
+		{
+			cv::Mat frame;
+			if (!camera_capture_.read(frame))
+			{
+				cv::waitKey(1);
+				continue;
+			}
+
+			update_delta_t();
+
 			cv::RotatedRect rRect;
 			armorTracker_.reset_armor_tracker();
 
@@ -100,9 +290,6 @@ public:
 
 				// 广播消息
 				publish_armor_info();
-
-				cv::imshow("frame", frame);
-				cv::waitKey(1);
 			}
 			else
 			{
@@ -110,14 +297,37 @@ public:
 				armorTracker_.center_fits.clear();
 				armorTracker_.first_frame = true;
 			}
+
+			cv::imshow("frame", frame);
+			int key = cv::waitKey(1);
+			if (key == 27)
+			{
+				break;
+			}
 		}
 
 		openCVBasicOperator_.save_image("output/result.jpg", ans);
+		camera_capture_.release();
 		openCVBasicOperator_.release_video();
 		cv::destroyAllWindows();
 	}
 
 private:
+	void update_delta_t()
+	{
+		const auto current_frame_time = std::chrono::steady_clock::now();
+		if (has_last_frame_time_)
+		{
+			const double measured_delta_t = std::chrono::duration<double>(current_frame_time - last_frame_time_).count();
+			if (measured_delta_t > 0.0 && measured_delta_t < 1.0)
+			{
+				delta_t = measured_delta_t;
+			}
+		}
+		last_frame_time_ = current_frame_time;
+		has_last_frame_time_ = true;
+	}
+
 	void publish_armor_info()
 	{
 		// 发布消息
@@ -220,6 +430,11 @@ int main(int argc, char **argv)
 {
 	rclcpp::init(argc, argv);
 	auto node = std::make_shared<ArmorTrackerNode>();
+	if (!node->is_ready())
+	{
+		rclcpp::shutdown();
+		return 0;
+	}
 	node->run();
 	rclcpp::spin(node);
 	rclcpp::shutdown();

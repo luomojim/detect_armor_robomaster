@@ -18,6 +18,32 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(OpenCV REQUIRED)
 
+get_filename_component(MVSDK_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/third_party/mvsdk" ABSOLUTE)
+set(MVSDK_INCLUDE_DIR "${MVSDK_ROOT}/include")
+set(MVSDK_LIBRARY "")
+set(MVSDK_LIBRARY_DIR "")
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  string(TOLOWER "${CMAKE_SYSTEM_PROCESSOR}" MVSDK_PROCESSOR)
+
+  if(MVSDK_PROCESSOR MATCHES "^(x86_64|amd64)$")
+    set(MVSDK_LIBRARY_DIR "${MVSDK_ROOT}/lib/x64")
+  elseif(MVSDK_PROCESSOR MATCHES "^(aarch64|arm64)$")
+    set(MVSDK_LIBRARY_DIR "${MVSDK_ROOT}/lib/arm64")
+  elseif(MVSDK_PROCESSOR MATCHES "^arm")
+    set(MVSDK_LIBRARY_DIR "${MVSDK_ROOT}/lib/arm")
+  elseif(MVSDK_PROCESSOR MATCHES "^(i[3-6]86|x86)$")
+    set(MVSDK_LIBRARY_DIR "${MVSDK_ROOT}/lib/x86")
+  endif()
+
+  if(EXISTS "${MVSDK_INCLUDE_DIR}/CameraApi.h" AND MVSDK_LIBRARY_DIR AND EXISTS "${MVSDK_LIBRARY_DIR}/libMVSDK.so")
+    set(MVSDK_LIBRARY "${MVSDK_LIBRARY_DIR}/libMVSDK.so")
+    message(STATUS "MVSDK camera integration enabled: ${MVSDK_LIBRARY}")
+  else()
+    message(WARNING "MVSDK not found for processor ${CMAKE_SYSTEM_PROCESSOR}; armor_tracker_node will use the OpenCV camera backend instead.")
+  endif()
+endif()
+
 set(TRACKER_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/armorTracker.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/kalmanFilter.cpp
@@ -52,6 +78,22 @@ target_compile_definitions(
   PRIVATE
     ORIGIN_PROJECT_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
 )
+
+if(MVSDK_LIBRARY)
+  target_include_directories(armor_tracker_node PRIVATE ${MVSDK_INCLUDE_DIR})
+  target_link_libraries(armor_tracker_node ${MVSDK_LIBRARY})
+  target_compile_definitions(armor_tracker_node PRIVATE ARMOR_TRACKER_USE_MVSDK=1)
+  set_target_properties(armor_tracker_node PROPERTIES
+    BUILD_RPATH "${MVSDK_LIBRARY_DIR}"
+    INSTALL_RPATH "\$ORIGIN"
+  )
+  install(FILES "${MVSDK_LIBRARY}"
+    DESTINATION lib/${PROJECT_NAME}
+  )
+  install(DIRECTORY "${MVSDK_ROOT}/rules/"
+    DESTINATION share/${PROJECT_NAME}/mvsdk_rules
+  )
+endif()
 
 ament_target_dependencies(
   armor_tracker_node
